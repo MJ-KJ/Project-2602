@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+{% block title %}App Users{% endblock %}
+{% block page %}App Users{% endblock %}
+
+{{ super() }}
+
+
+
+{% block navigation %}
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+        <div class="container px-5">
+          <a class="navbar-brand" href="/"
+            ><span class="fw-bolder text-primary">Friend Safe</span></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/register">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href>About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href>Contact</a>
+              </li>
+            </ul>
+          </div>
+          </div>
+{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="alert alert-danger" role="alert">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+ <!-- Page content-->
+            <section class="py-5">
+                <div class="container px-5">
+                    <!-- Registration form-->
+                    <div class="bg-light rounded-4 py-5 px-4 px-md-5">
+                        <div class="text-center mb-5">
+                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"><i class="bi bi-person-circle"></i></div>
+                            <h1 class="fw-bolder">Create Acoount</h1>
+                        </div>
+                        <div class="row gx-5 justify-content-center">
+                            <div class="col-lg-8 col-xl-6">
+                               <form id="registrationForm" method="post">
+                                   {{form.hidden_tag() }}
+                          <!-- First Name input-->
+                          <div class="form-floating mb-3">
+                            {{ form.fname(class="form-control", id="name", type="text") }}
+                            {{ form.fname.label() }}
+                          </div>
+
+                          <!-- Surname input-->
+                          <div class="form-floating mb-3">
+                            {{ form.sname(class="form-control", id="surname", type="text") }}
+                            {{ form.sname.label() }}
+                          </div>
+
+                          <!-- Username input-->
+                          <div class="form-floating mb-3">
+                            {{ form.username(class="form-control", id="username", type="text") }}
+                            {{ form.username.label() }}
+                          </div>
+
+                          <!-- Email input-->
+                          <div class="form-floating mb-3">
+                            {{ form.email(class="form-control", id="email", type="email") }}
+                            {{ form.email.label() }}
+                          </div>
+
+                            <!-- Phone input-->
+                          <div class="form-floating mb-3">
+                            {{ form.phone(class="form-control", id="phone", type="text") }}
+                            {{ form.phone.label() }}
+                          </div>
+
+                          <!-- Password input-->
+                          <div class="form-floating mb-3">
+                            {{ form.password(class="form-control", id="password", type="password") }}
+                            {{ form.password.label() }}
+                          </div>
+
+
+
+                          <!-- Password2 input-->
+                          <div class="form-floating mb-3">
+                            {{ form.password2(class="form-control", id="password2", type="password") }}
+                              {{ form.password2.label() }}
+                          </div>
+
+                          <!-- Submit Button-->
+                          <div class="d-grid">
+                            {{ form.register(class="btn btn-primary btn-lg", id="submitButton", type="submit") }}
+                          </div>
+</form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+{% endblock %}

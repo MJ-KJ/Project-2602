@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+{{ super() }}
+
+{% block navigation %}
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+        <div class="container px-5">
+          <a class="navbar-brand" href="/home"
+            ><span class="fw-bolder text-primary">Friend Safe</span></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+              <li class="nav-item">
+                <a class="nav-link" href="/home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="resume.html">Alert Friends</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Friends</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">View Friends</a></li>
+                    <li><a class="dropdown-item" href="#">Manage Friends</a></li>
+                  </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Profile</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">View Profile</a></li>
+                    <li><a class="dropdown-item" href="/logout">Log Out</a></li>
+                  </ul>
+            </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+{% endblock %}
+
+
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="alert alert-danger" role="alert">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<div>
+
+</div>
+     <div class="form-floating mb-3">
+    <form id="SearchUser" method="POST">
+          <div class="form-floating mb-3">
+                            {{form.username(class="form-control", id="username", type="text") }}
+                            {{form.username.label() }}
+          </div>
+           <div class="form-floating mb-3"><button class="btn btn-primary btn-sm" id="submitButton" type="submit">Search</button></div>
+
+
+      </form>
+</div>
+
+<section style="background-color: #eee;">
+        <div class="container py-5">
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card mb-4 rounded-4">
+
+                <div class="card shadow border-0 rounded-4 mb-lg-0 text-center ">
+                  <div class="d-flex justify-content-center mt-5 mt-xxl-0">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 150px;">
+                  </div>
+                  <h5 class="my-3"> {{username}}</h5>
+                  <p class="text-muted mb-1">Regular User</p>
+                  <div class="d-flex justify-content-center mb-2">
+                    <button type="button" class="btn btn-primary" disabled>Add</button>
+                    <button type="button" class="btn btn-outline-primary ms-1" disabled>Message</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Full Name</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{fname}} {{lname}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Email</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{email}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Phone</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{phone}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+
+
+
+
+{% endblock %}
