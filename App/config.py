@@ -18,7 +18,7 @@ def load_config():
         config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
         config['RAWG_TOKEN'] = os.environ.get('RAWG_TOKEN')
         config['TWILIO_AUTH_TOKEN'] = os.environ.get('TWILIO_AUTH_TOKEN')
-        cconfig['TWILIO_ID']  = os.environ.get('TWILIO_ID')
+        config['TWILIO_ID']  = os.environ.get('TWILIO_ID')
         config['DEBUG'] = config['ENV'].upper() != 'PRODUCTION'
         delta = int(os.environ.get('JWT_ACCESS_TOKEN_EXPIRES', 7))
 
