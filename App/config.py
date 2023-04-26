@@ -14,7 +14,7 @@ def load_config():
         config['TWILIO_ID'] = TWILIO_ID
         delta = JWT_ACCESS_TOKEN_EXPIRES
     else:
-        config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL').replace("postgres://", "postgresql://", 1)
+        config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
         config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
         config['RAWG_TOKEN'] = os.environ.get('RAWG_TOKEN')
         config['TWILIO_AUTH_TOKEN'] = os.environ.get('TWILIO_AUTH_TOKEN')
